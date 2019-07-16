@@ -1,3 +1,9 @@
+<?php
+    require_once 'include/database.php'; // подключаем базу данных
+    require_once 'include/function.php'; // подключаем функции для связи с MySQL    
+?>
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,6 +15,7 @@
     <!-- Bootstrap -->
     <link href="public/libs/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
+    <link href="public/libs/fontawesome-free-5.9.0-web/css/fontawesome.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,6 +25,7 @@
     <![endif]-->
 </head>
 <body>
+<i class="fas fa-address-book"></i>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Мой блог</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +34,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <?php $menu_items = array(
+            <?php /*$menu_items = array(
                 'Фотография',
                 'Путешествия',
                 'Авто',
@@ -38,7 +46,21 @@
                         </li>';
                     }
                   
-                } ?>
+                } */?>
+                
+
+            <?php 
+                $categories = get_catagories();
+            ?>
+            <?php if (count($categories) === 0): ?>
+            <li><a class="nav-link" href="#">Добавить категорию</a></li>
+            <?php else: ?>
+
+            <?php foreach($categories as $category): ?>
+            <li><a class="nav-link" href="/category.php?id=<?=$category["id"]?>"><?=$category["title"]?></a></li>
+            <?php endforeach; ?>
+
+            <?php endif; ?>
 
 
             <!-- <li class="nav-item active">
@@ -56,10 +78,7 @@
                 <a class="nav-link" href="#">Пункт_4</a>
             </li> -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        
     </div>
     </nav>
  
