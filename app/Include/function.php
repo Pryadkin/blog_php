@@ -1,7 +1,6 @@
 <?php
 
 function get_catagories() {
-
     global $link;  //Чтобы вызывать функцию без атрибута $link, берем ее из глобальной области
 
     $sql = "SELECT * FROM `categories`";    //копируем строку из базы данных. 
@@ -25,7 +24,6 @@ function get_catagories() {
 
 
 function get_posts() {
-
     global $link;  
 
     $sql = "SELECT * FROM `posts`"; 
@@ -35,5 +33,18 @@ function get_posts() {
     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC); 
 
     return $posts;
+}
 
+
+// Функция, чтобы достать конкретный пост из базы данных
+function get_post_by_id($post_id) {
+    global $link;
+
+    $sql = "SELECT * FROM posts WHERE id = ".$post_id;
+
+    $result = mysqli_query($link, $sql);
+
+    $post = mysqli_fetch_assoc($result);
+
+    return $post;
 }

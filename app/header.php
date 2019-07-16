@@ -15,7 +15,7 @@
     <!-- Bootstrap -->
     <link href="public/libs/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
-    <link href="public/libs/fontawesome-free-5.9.0-web/css/fontawesome.min.css" rel="stylesheet">
+    <link href="public/libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,9 +25,11 @@
     <![endif]-->
 </head>
 <body>
-<i class="fas fa-address-book"></i>
+<div class="container-fluid">
+  
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Мой блог</a>
+    <a class="navbar-brand" href="/index.php">Мой блог</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -82,7 +84,7 @@
     </div>
     </nav>
  
-
+</div>
 
 
 
