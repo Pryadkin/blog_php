@@ -6,7 +6,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 require_once 'app/header.php';
-
 ?>
 
 
@@ -18,7 +17,7 @@ require_once 'app/header.php';
             </div>
         </div>
         <div class="col-md-3">
-            sidebar
+            <?php require_once 'app/include/sidebar.php'; ?>
         </div>
 
         <?php 
@@ -27,7 +26,7 @@ require_once 'app/header.php';
 
         <?php foreach ($posts as $post): ?>
         
-        <div class="row col-md-12">
+        <div class="row col-md-9">
                 <div class="col-md-3">
                     <a href="#" class="thumbnail">
                     
@@ -43,8 +42,12 @@ require_once 'app/header.php';
                         ? mb_substr($post["content"], 0, 250, 'UTF-8').'...' 
                         : $post["content"] ?>  
                     </p>
-                    <p><a class="btn-info btn-sm" href="/post.php?post_id=<?=$post['id']?>">Read more</a></p>
-                <br/>
+                    <p>
+                        <a class="btn-info btn-sm" href="/post.php?post_id=<?=$post['id']?>">
+                            Read more
+                        </a>
+                    </p>
+                    <br/>
                     <ul class="list-inline">
                         <li class="list-inline-item"><i class="fa fa-list"></i><a href="#">Назначение категории</a> | </li>
                         <li class="list-inline-item"><i class="fa fa-calculator"></i>16 июля 2019 21:00 </li>
